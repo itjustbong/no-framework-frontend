@@ -4,7 +4,7 @@ const getTodoElement = (todo) => {
   // 정확히는 todo의 한 아이템 정보임!
   const { text, completed } = todo;
 
-  //
+  // 그냥 HTML 요소 리턴해버림 ㄷ
   return `
   <li ${completed ? 'class="completed"' : ''}>
     <div class="view">
@@ -29,7 +29,6 @@ const getTodoCount = (todos) => {
   if (length === 1) {
     return '1 Item left';
   }
-
   return `${length} Items left`;
 };
 
