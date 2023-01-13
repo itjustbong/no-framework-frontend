@@ -1,6 +1,6 @@
 # 웹 구성 요소
 
-[Custom-elements](https://ko.javascript.info/custom-elements)
+[사용자 정의 구성요소 - javascript.info](https://ko.javascript.info/custom-elements)
 
 - 상단 링크에 관련 내용이 책보다 더 자세하게, 쉽게 설명되어 있습니다!
 
@@ -213,3 +213,43 @@ export default class HelloWorld extends HTMLElement {
   - 위 코드들을 통해서,
     이미지 로드가 성공했을 때,
     `console.log('Avatar Loaded', e.detail.avatar);` 가 찍힘
+
+# TodoMVC에 사용자 구성 요소 도입
+
+## 구성요소
+
+- todomvc-app
+- todomvc-list
+- todomvc-footer
+
+## `<template>` 요소 활용
+
+- `<template>` 요소를 적극적으로 활용함
+- 간략 코드
+
+  ```HTML
+  <!-- ... -->
+  <template id="footer"> ~~ </template>
+  <template id="todo-item"> ~~ </template>
+  <template id="todo-app">
+    <todomvc-list></todomvc-list>
+    <todomvc-footer></todomvc-footer>
+  </template>
+  <todomvc-app></todomvc-app>
+  <!-- ... -->
+  ```
+
+- 위의 코드와 같이 `<template>` 요소를 통해 컴포넌트를 생성하는 모습을 볼 수 있음
+- `components/List` 에서는,
+  어떤 Todo 아이템의 삭제 요청인지에 대한 정보를 받아,
+  이벤트의 인자로 줘버림.
+  => 그래서 실제로 삭제하는 로직은 `요소 외부`에서 처리함
+- `components/Application` 에서는 전반적인 이벤트를 관리함
+  - 1. todo 요소의 추가
+  - 2. todo 요소의 삭제
+  - 3. 리스트의 DOM 과 State를 동기화
+  - 근데 책에 있는 내용 그대로 하면 에러뜸!ㅎ (this 바인딩 문제라고 함...)
+
+# 참고자료
+
+- [HTML 요소 및 프로퍼티](https://ko.javascript.info/dom-attributes-and-properties)
