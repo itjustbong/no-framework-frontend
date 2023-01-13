@@ -173,3 +173,12 @@ export default class HelloWorld extends HTMLElement {
     applyDiff(this, this.firstElementChild, createDomElement(newValue));
   }
 ```
+
+## Github Avatar W/O 사용자 정의 이벤트
+
+![깃허브 아바타 이미지](../src/ga_image.png)
+
+- 사진 상의 로직은 전부 `DOM 요소의 라이프사이클` 에서 작동함
+- 관련 코드는 `GitAvatar1` 폴더에 위치함
+- 해당 구성 요소는 목적이 하나 뿐 => 구성 요소 외부의 환경에 대응하지 못해<br/>
+  ~~무슨 뜻인지 정확히 모르겠음!~~
