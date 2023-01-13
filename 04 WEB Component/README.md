@@ -182,3 +182,34 @@ export default class HelloWorld extends HTMLElement {
 - 관련 코드는 `GitAvatar1` 폴더에 위치함
 - 해당 구성 요소는 목적이 하나 뿐 => 구성 요소 외부의 환경에 대응하지 못해<br/>
   ~~무슨 뜻인지 정확히 모르겠음!~~
+
+## Github Avatar With 사용자 정의 이벤트
+
+[사용자 정의 이벤트 설명 - javascript.info](https://ko.javascript.info/dispatch-events)
+
+- `아바타가 로드됐을 때`와, `오류가 발생했을 때`에 대한 이벤트
+- 로드 성공시 이벤트 등록 관련 코드
+
+  ```javascript
+  onLoadAvatarComplete() {
+    const event = new CustomEvent(AVATAR_LOAD_COMPLETE, {
+      detail: {
+        avatar: this.url,
+      },
+    });
+
+    this.dispatchEvent(event);
+  }
+  ```
+
+- 해당 이벤트 핸들러 코드
+  ```javascript
+  avatar.addEventListener(EVENTS.AVATAR_LOAD_COMPLETE, (e) => {
+    // 해당 이벤트에 대한 인자를 받을 수 있음
+    // e: detail: { avatar: this.url }
+    console.log('Avatar Loaded', e.detail.avatar);
+  });
+  ```
+  - 위 코드들을 통해서,
+    이미지 로드가 성공했을 때,
+    `console.log('Avatar Loaded', e.detail.avatar);` 가 찍힘
