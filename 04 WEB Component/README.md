@@ -154,3 +154,22 @@ export default class HelloWorld extends HTMLElement {
   // ...
 }
 ```
+
+## 가상 DOM 통합
+
+- 기존 `02 Rendering`의 diff 알고리즘을 활용하여,
+  색상이 변경될 때마다 가상 DOM알고리즘을 호출해 색상을 수정할 수 있음
+
+```javascript
+  attributeChangedCallback(name, oldValue, newValue) {
+    // 해당 요소가 자식 노드를 가지고 있으면 반영X...?
+    // 이러는 이유를 아시는 분...!!
+    if (!this.hasChildNodes()) {
+      return;
+    }
+
+    // 기존 노드와 차이점 분석 후,
+    // 가상 돔을 통해 렌더링 진행
+    applyDiff(this, this.firstElementChild, createDomElement(newValue));
+  }
+```
