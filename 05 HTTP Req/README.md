@@ -76,3 +76,6 @@ const request = (method, url, data) => {
   - 실제 애플리케이션에서는 Content-Type 헤더를 확인하고, 적절한 메서드를 사용해야 함
 
 ### axios
+
+- axios의 API는 프로미스 기반으로 하고 있음
+- 타 방식과 달리 Node 환경에서 사용가능
