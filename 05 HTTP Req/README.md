@@ -74,3 +74,5 @@ const request = (method, url, data) => {
   - 보일러플레이트 필요 X
 - 수신된 객체는 데이터 형식에 따라 text(), blob(), json() 등의 메서드를 사용
   - 실제 애플리케이션에서는 Content-Type 헤더를 확인하고, 적절한 메서드를 사용해야 함
+
+### axios
