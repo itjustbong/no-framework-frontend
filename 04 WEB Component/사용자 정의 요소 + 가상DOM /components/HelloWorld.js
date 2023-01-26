@@ -23,8 +23,12 @@ export default class HelloWorld extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    // 해당 요소가 자식 노드를 가지고 있으면 반영X...?
+    // 해당 요소가 자식 노드를 가지고 있지 않을때 반영X...?
+    // 리프노드일 때, callback
     if (!this.hasChildNodes()) {
+      // 리프노드인경우
+      // <div></div>
+      // <div class="hello"></div>
       return;
     }
 
