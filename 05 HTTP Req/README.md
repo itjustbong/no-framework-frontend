@@ -66,3 +66,11 @@ const request = (method, url, data) => {
 ```
 
 ### fetch
+
+- 원격 리소스에 접근하고자 만들어진 API
+- 해당 API의 목적은 Req나 Res 같은 많은 네트워크 객체에 대한 표준 정의를 제공하는 것
+- fetch는 Promise 객체를 반환하기 때문에, 가독성이 좋음
+  - 전통적인 콜백 기반의 XMLHttpRequest 접근 방식을 최신 프로미스 기반으로 변환함
+  - 보일러플레이트 필요 X
+- 수신된 객체는 데이터 형식에 따라 text(), blob(), json() 등의 메서드를 사용
+  - 실제 애플리케이션에서는 Content-Type 헤더를 확인하고, 적절한 메서드를 사용해야 함
